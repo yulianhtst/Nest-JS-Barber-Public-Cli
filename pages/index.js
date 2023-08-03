@@ -1,13 +1,18 @@
-// import Head from 'next/head';
+import Head from 'next/head';
+import { Box } from '@mui/material';
 
-// import { getSortedPostsData } from '@/lib/posts';
-// import Layout, { siteTitle } from '../components/layout/Layout';
-// import utilStyles from '../styles/utils.module.css';
-
+import CustomSlider from '@/components/common/CustomSlider';
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Home</title>
+      </Head>
+
+      <Box sx={{ backgroundColor: 'azure', position: 'absolute', top: '0px' }}>
+      </Box >
+      <CustomSlider />
     </>
   )
 }
