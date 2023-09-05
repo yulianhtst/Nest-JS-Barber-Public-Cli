@@ -1,9 +1,15 @@
-import styles from '@/styles/Layout.module.css'
+import { Box } from "@mui/material"
 
 export default function PageLayout({ children }) {
     return (
-        <div className={styles.container}>
+        <Box
+            sx={{
+                mx: 'auto',
+                // width: '1900px',
+                maxWidth: '1920px',
+            }}
+        >
             {children}
-        </div>
+        </Box>
     )
 }
