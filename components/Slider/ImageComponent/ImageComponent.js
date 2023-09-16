@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { forwardRef } from "react";
 
 import { Box, Button, Typography } from "@mui/material";
+import { StyledFlexBox } from '../../common/StyledFlexBox';
 
 const clickHandler = {
     0: '/hello',
@@ -11,44 +12,32 @@ const clickHandler = {
 }
 
 const ImageComponent = forwardRef(({ index, width, image }, ref) => {
+
     if (image) {
         return (
-            <Box
-                width={width}
-                sx={{
-                    display: 'flex',
-                    minHeight: '100%',
-                    flexDirection: 'column',
-                    verticalAlign: 'baseline',
-                }}
-            >
+            <Box width={width}>
                 <Box
                     sx={{
                         width: '100%',
                         height: '100%',
                         display: 'flex',
-                    }}
-                >
+                    }}>
                     <Box
-                        ref={ref}
                         sx={{
                             position: 'relative',
                             display: 'flex',
-                            boxSizing: 'border-box',
                             overflow: 'hidden',
-                            flex: "1 1 0",
+                            flex: "1",
                             zIndex: '1',
 
 
                             flexDirection: 'column',
                             justifyContent: 'center',
 
-                            paddingTop: '20rem',
-                            paddingBottom: '20rem',
+                            paddingTop: '10rem',
+                            paddingBottom: '10rem',
 
                             //dynamic width
-                            // width: '1920px',
-                            height: '100%',
                         }}
                     >
                         <Image
@@ -57,28 +46,28 @@ const ImageComponent = forwardRef(({ index, width, image }, ref) => {
                             src={image}
                             style={{
                                 position: 'absolute',
-                                maxWidth: '100%',
-                                maxHeight: '100%',
+                                width: '100%',
+                                height: '100%',
                                 objectFit: 'cover',
-                                top: '0',
-                                left: '0',
-
-                                // backgroundSize: 'cover',
-                                backgroundPosition: '50% 50%',
                             }}
                         />
                         <Box
                             sx={{
                                 position: 'relative',
+                                maxWidth: '1680px',
+                                border: '4px solid red ',
                                 margin: '0 auto',
-                                maxWidth: '115.2rem',
-                                maxHeight: '50.2rem',
-                                paddingLeft: '3.2rem',
-                                paddingRight: '3.2rem',
+                                // margin: '200px auto',
+                                // maxWidth: '115.2rem',
+                                // maxHeight: '50.2rem',
+                                // paddingLeft: '3.2rem',
+                                // paddingRight: '3.2rem',
                             }}
                         >
                             <Typography
                                 sx={{
+                                    border: '4px solid red ',
+
                                     marginTop: '100px',
                                     marginBottom: '100px',
                                     fontFamily: '-apple-system',
@@ -89,9 +78,11 @@ const ImageComponent = forwardRef(({ index, width, image }, ref) => {
                             >Hello to my WebSite that is very responsive ala bala ala bala
                             </Typography>
                             <Button
-                                href={clickHandler[index]}
+                                // href={clickHandler[index]}
                                 variant="contained"
                                 sx={{
+                                    border: '4px solid red ',
+
                                     maxHeight: '3.5em',
                                     maxWidth: '20em',
                                     minHeight: '5em',

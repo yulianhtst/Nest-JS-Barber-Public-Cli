@@ -3,7 +3,7 @@
 import useWindowScreenSize from "@/hooks/useWindowScreenSize";
 import useInterval from "@/hooks/useInterval";
 
-import ImageComponent from '../ImageComponent/ImageComponent'
+import ImageComponent from './ImageComponent/ImageComponent'
 
 import { Box, Button } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
@@ -18,23 +18,60 @@ import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
 
 export default function CustomSlider() {
+    // const worker = new Worker(/)
+
     console.log('=====================RENDER==================================');
     const [images, setImages] = useState([image1, image2, image3])
-
-    const index = useRef(0)
-
-    const [firstSlide, setFirstSlide] = useState(images[0])
-    const [lastSlide, setLastSlide] = useState(images[images.length - 1])
-
     const [haveTransition, setHaveTransition] = useState(false)
+    const [index, setIndex] = useState(0)
 
-    const [offSet, setOffset] = useState(0)
 
+    const firstSlide = images[0]
+    const lastSlide = images[images.length - 1]
+
+
+    // const index = useRef(0)
     const roots = useRef(null);
     const children = useRef(null);
 
 
     const [width, height] = useWindowScreenSize()
+
+
+    const checkIndex = () => {
+        // setHaveTransition(false)
+
+        // if (index.current === images.length) {
+        //     console.log(index.current, 'inside if ');
+        //     index.current = 0
+        // }
+
+
+    }
+
+    useEffect(() => {
+        const lastIndex = images.length - 1
+
+        if (index < 0) {
+            setHaveTransition(false)
+            setIndex(lastIndex)
+        }
+        if (index > lastIndex + 1) {
+            setHaveTransition(false)
+            setIndex(0)
+        }
+    }, [index])
+        console.log(index);
+
+    useEffect(() => {
+        const slider = setInterval(() => {
+            setHaveTransition(true)
+
+            setIndex(index + 1)
+        }, 5000);
+
+        return () => clearInterval(slider)
+    }, [index])
 
 
     // const cbRef = useIntersectionObserver({ threshold: 0, root: roots.current }, (entries) => {
@@ -52,49 +89,28 @@ export default function CustomSlider() {
         if (roots.current) {
             children.current = roots.current.children.length
         }
+        const audio = new AudioContext()
+        console.log(audio);
     }, [])
-    //Може би трябва да проверяваме индекса всеки път като се смени транзишъна
 
-    useInterval(() => {
-        setHaveTransition(true)
-        // чекваме дали не минаваме общия размер 
-        // function calcOffset() {
-        //     return width*
-        // }
+    // useInterval(() => {
+    //     setHaveTransition(true)
 
-        // const resized = roots.current.addEventListener('resize', calcOffset)
-        setOffset(o => o + width);
-        index.current += 1
-    }, 8000);
+    //     index.current++
+    // }, 8000);
 
-    // useEffect(() => {
-    //     setOffset(o => o + width);
-    // }, [width])
-    //Трябва да измисля начин да сетвам width динамично без да 
 
-    console.log(children.current);
+    // console.log(children.current);
+
 
 
     useEffect(() => {
-        const checkIndex = () => {
-            setHaveTransition(false)
-            if (index.current === -1) {
-                setOffset(children.current * width)
-                index.current = children.current - 1
-            }
-            if (index.current === images.length) {
-                index.current = 0
-                setOffset(width)
-            }
-        }
-        //Dobre e tozi event listnenr da se premeti na parenta na elementite 
         const transitionend = roots.current.addEventListener('transitionend', checkIndex)
         return () => {
             removeEventListener('transitionend', transitionend)
         }
     }, []);
 
-    console.log(offSet);
     return (
         <Box
             ref={roots}
@@ -104,13 +120,11 @@ export default function CustomSlider() {
                 position: 'relative',
                 overflow: 'hidden',
                 width: `${children.current * width}px`,
-                height: `85vh`,
+                height: '850px',
 
+                // left: `-${width * index.current}px`,
+                left: `-${width * index}px`,
 
-
-
-                //tuka e problema
-                left: `-${width + offSet}px`,
             }}
         >
 
@@ -124,12 +138,6 @@ export default function CustomSlider() {
             }
 
             < ImageComponent index={index} width={width} image={firstSlide} />
-
         </ Box >
     );
 }
-
-//   Слайдъра работи по следния начин.
-//   Има две снимки клониран [първата и последната]
-//   Снимките които се въртят стоят между копията
-//   Като стигнем до последната снимка която е клонирана от първата. Сменяме клонираната с първата
