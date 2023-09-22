@@ -8,7 +8,6 @@ const arrMap = [0, 1, 2, 3]
 
 const CardHolder = () => {
     return (
-        <PageLayout>
 
             <StyledFlexBox
                 sx={{
@@ -44,7 +43,6 @@ const CardHolder = () => {
 
                 </StyledFlexBox>
             </StyledFlexBox >
-        </PageLayout >
     )
 }
 export default CardHolder

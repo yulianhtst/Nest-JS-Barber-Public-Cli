@@ -13,7 +13,6 @@ import { StyledFlexBox } from "../common/StyledFlexBox"
 
 const CardComponent = forwardRef((ref) => {
     const [showModal, setShowModal] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
 
     const [width, height] = useWindowScreenSize()
 
