@@ -6,11 +6,11 @@ import CalendarComponent from "./CalendarComponent/CalendarComponent"
 import ReactModal from "react-modal"
 import { useState } from "react"
 import FormInputField from "./FormInputField/FormInputField";
+import { makeBooking } from "@/services/bookingService";
 
 
 const ModalComponent = ({ onClose }) => {
-    const [date, setDate] = useState(null)
-    console.log(date);
+    const [date, setDate] = useState(dayjs("11-09-2023"))
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -80,6 +80,14 @@ const ModalComponent = ({ onClose }) => {
 
 
     }
+    const onComfirmHandler = () => {
+        const data = {
+            ...form,
+            date
+        }
+        makeBooking(data)
+        onClose()
+    }
 
     return (
         <ReactModal
@@ -111,9 +119,9 @@ const ModalComponent = ({ onClose }) => {
                                     <FormInputField required name="number" onBlurCallBackFunction={onBlurHandler} onChangeCallBackFunction={onChangeHandler} warningMessage={warningMessage} />
                                     <FormInputField name="services" onBlurCallBackFunction={onBlurHandler} onChangeCallBackFunction={onChangeHandler} warningMessage={warningMessage} />
                                     <Box>
-                                        <Button onClick={onClose}> Back</Button>
-                                        <Button onClick={onNextClickHandler}>Next</Button>
-                                        {btnMsg && <Typography color="red" display="inline">Fill the form</Typography>}
+                                        <Button variant="contained" onClick={onClose}> Back</Button>
+                                        <Button sx={{ m: '0 10px' }} variant="contained" onClick={onNextClickHandler}>Next</Button>
+                                        {btnMsg && <Typography color="red">Please make sure to fill the fields</Typography>}
                                     </Box>
                                 </Box>
                             )
@@ -123,14 +131,18 @@ const ModalComponent = ({ onClose }) => {
                         case 3: return (
                             <Box>
                                 <ul>
-                                    <Typography sx={{ color: 'black', width: '40ch' }}>Name: {form.name}</Typography>
-                                    <Typography sx={{ color: 'black', width: '40ch' }}>Email: {form.email}</Typography>
-                                    <Typography sx={{ color: 'black', width: '40ch' }}>Number: {form.number}</Typography>
-                                    <Typography sx={{ color: 'black', width: '40ch' }}>Services: {form.services}</Typography>
-                                    <Typography sx={{ color: 'black', width: '40ch' }}>Date: {date.toString().slice(0, 10)}</Typography>
-                                    <Typography sx={{ color: 'black', width: '40ch' }}>Time: {date.toString().slice(16, 21)}</Typography>
+                                    <Typography sx={{ color: 'black', width: '40ch' }}><span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Name:</span>{form.name}</Typography>
+                                    <Typography sx={{ color: 'black', width: '40ch' }}><span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Email:</span> {form.email}</Typography>
+                                    <Typography sx={{ color: 'black', width: '40ch' }}><span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Number: </span>{form.number}</Typography>
+                                    <Typography sx={{ color: 'black', width: '40ch' }}><span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Services: </span>{form.services}</Typography>
+                                    <Typography sx={{ color: 'black', width: '40ch' }}><span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Date:</span> {date ? date.toString().slice(0, 10) : 'N/A'}</Typography>
+                                    <Typography sx={{ color: 'black', width: '40ch' }}><span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>Time: </span>{date ? date.toString().slice(16, 21) : 'N/A'}</Typography>
                                 </ul>
-                                <Button onClick={onClose}>Comfirm</Button>
+                                <Box sx={{ display: 'flex' }}>
+                                    <Button variant='contained' onClick={onClose} sx={{ m: '40px auto 0', }}>Back</Button>
+                                    {/* Can be created popUp for successful booking */}
+                                    <Button variant='contained' onClick={onComfirmHandler} sx={{ m: '40px auto 0', }}>Comfirm</Button>
+                                </Box>
                             </Box>
                             // <ComfirmComponent />
                         )
