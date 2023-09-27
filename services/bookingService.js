@@ -10,7 +10,7 @@ export const makeBooking = async (bodyContent) => {
     }
 
     try {
-        const response = await fetch(API_URL, options)
+        const response = await fetch(API_URL + 'bookings', options)
         const responseJSON = await response.json()
         return responseJSON
     } catch (error) {

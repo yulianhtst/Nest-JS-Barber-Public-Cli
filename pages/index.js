@@ -9,10 +9,8 @@ import CardHolder from '@/components/CardHolder';
 import BeardsComponent from '@/components/SectionComponent/BeardsComponent';
 import WorkingHoursComponent from '@/components/WorkingHoursComponent/WorkingHoursComponent';
 import FooterComponent from '@/components/layout/Footer/FooterComponent';
-import LocationComponent from '@/components/LocationComponent/LocationComponent';
 
 
-// const date2 = new Date();
 export default function Home() {
     return (
 
@@ -66,7 +64,6 @@ export default function Home() {
                 }}></Box>
             </Box >
             <BeardsComponent />
-            <LocationComponent />
             <FooterComponent />
         </>
     )

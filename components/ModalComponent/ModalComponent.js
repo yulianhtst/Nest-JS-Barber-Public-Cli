@@ -23,7 +23,9 @@ const ModalComponent = ({ onClose }) => {
     const [warningMessage, setWarningMessage] = useState({ error: true })
 
     const onDatePickHandler = (e) => {
-        setDate(e?.$d)
+        // setDate(e?.$d)
+        setDate(new Date(e))
+        console.log(date);
         setStep(step => step + 1)
         // ?? dayjs("21-09-2023").$d
     }
