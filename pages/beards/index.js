@@ -1,9 +1,9 @@
 import Image from "next/image"
-import imgsrc from "@/public/images/480019.jpg"
-import imgsrcchair from "@/public/images/chair.jpg"
-import imgsrctools from "@/public/images/tools.jpg"
-import imgsrcsaloon from "@/public/images/saloon.png"
-import imgsrc2 from "@/public/images/backgrounds/manHaircut2.png"
+import imgsrc from "@/images/480019.jpg"
+import imgsrcchair from "@/images/chair.jpg"
+import imgsrctools from "@/images/tools.jpg"
+import imgsrcsaloon from "@/images/saloon.png"
+import imgsrc2 from "@/images/backgrounds/manHaircut2.png"
 import { Box, Icon, Typography } from "@mui/material"
 import ContentCutIcon from '@mui/icons-material/ContentCut';
 

@@ -1,25 +1,24 @@
 import { Box, Typography, Button, Container, Fab } from "@mui/material"
-import img1 from '@/public/images/qualities-of-a-highly-professional-barber.jpg'
-import img2 from '@/public/images/00CelebrityBarbers-lede-try-btcf-videoSixteenByNine3000.jpg'
-import img3 from '@/public/images/Untitled.jpg'
+import img1 from '@/images/qualities-of-a-highly-professional-barber.jpg'
+import img2 from '@/images/00CelebrityBarbers-lede-try-btcf-videoSixteenByNine3000.jpg'
+import img3 from '@/images/Untitled.jpg'
 import Image from "next/image"
 import useWindowScreenSize from "@/hooks/useWindowScreenSize"
 
-import { createPortal } from "react-dom"
 
 import { forwardRef, useRef, useState } from "react"
-import ModalComponent from "../ModalComponent/ModalComponent"
-import { StyledFlexBox } from "../common/StyledFlexBox"
+import ModalComponent from "../../ModalComponent/ModalComponent"
 
-const CardComponent = forwardRef((ref) => {
+const CardComponent = (() => {
     const [showModal, setShowModal] = useState(false);
 
-    const [width, height] = useWindowScreenSize()
+    const reserveButtonHandler = (e) => {
+        setShowModal(true)
+        console.log(e.target)
+    }
 
-    const refModal = useRef(null)
     return (
         <Box
-            ref={refModal}
             sx={{
                 width: '400px',
                 height: '600px',
@@ -74,9 +73,10 @@ const CardComponent = forwardRef((ref) => {
                         }}>
                         Name
                     </Typography>
-                    <StyledFlexBox
-                        vertical={true}
+                    <Box
                         sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
                             backgroundColor: 'black',
                             gridRow: "2/ span 2",
                             padding: '20px',
@@ -85,8 +85,10 @@ const CardComponent = forwardRef((ref) => {
                         <Typography>
                             Работно време:
                         </Typography>
-                        <StyledFlexBox
+                        <Box
                             sx={{
+                                display: 'flex',
+
                                 flexGrow: 2,
                                 justifyContent: 'space-between'
                             }} >
@@ -102,7 +104,7 @@ const CardComponent = forwardRef((ref) => {
                                 Неделя<br />
                             </Typography>
                             <Typography
-                                F sx={{
+                                sx={{
                                     flexGrow: 1,
                                     padding: '20px 0',
                                     textAlign: 'center'
@@ -111,13 +113,14 @@ const CardComponent = forwardRef((ref) => {
                                 10:30 - 18:00<br />
                                 Почивен<br />
                             </Typography>
-                        </StyledFlexBox>
-                    </StyledFlexBox>
+                        </Box>
+                    </Box>
 
                 </Box>
-                <StyledFlexBox
-                    vertical={true}
+                <Box
                     sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
                         position: 'absolute',
                         backgroundColor: 'black',
                         width: '100%',
@@ -127,9 +130,10 @@ const CardComponent = forwardRef((ref) => {
                         padding: '40px',
                     }}
                 >
-                    <StyledFlexBox
-                        vertical={true}
+                    <Box
                         sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
                             width: '100%',
                             height: '100%',
                         }}>
@@ -139,15 +143,15 @@ const CardComponent = forwardRef((ref) => {
                         >
                             Здравейте, аз съм Самуил - вашият бръснар със страст и опит. Горд съм да предоставя най-добрите услуги за грижа за външния ви вид. Вярвам в индивидуалния стил и внимание към всеки клиент. Очаквам с нетърпение да ви посрещна и да ви предоставя уникално бръснене и стрижка, които заслужавате.
                         </Typography>
-                        <Button onClick={() => setShowModal(true)} variant="contained" sx={{ backgroundColor: 'primary', color: 'black' }}
+                        <Button onClick={reserveButtonHandler} variant="contained" sx={{ backgroundColor: 'primary', color: 'black' }}
                         >
                             Резервирай сега
                         </Button>
                         {showModal &&
                             <ModalComponent onClose={() => setShowModal(false)} />
                         }
-                    </StyledFlexBox>
-                </StyledFlexBox>
+                    </Box>
+                </Box>
             </ Box>
         </Box >
     )

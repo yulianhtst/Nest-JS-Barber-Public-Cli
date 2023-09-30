@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import PageLayout from '@/components/layout/PageLayout'
 import { ThemeHOC } from '@/HOC/ThemeHOC'
 
 

@@ -1,5 +1,4 @@
 import { Box } from "@mui/material"
-import StyledBox from "@/components/common/StyledBox"
 
 const FooterComponent = () => {
     return (

@@ -1,16 +1,13 @@
-"use client"
-
 import useWindowScreenSize from "@/hooks/useWindowScreenSize";
-import useInterval from "@/hooks/useInterval";
 
 import ImageComponent from './ImageComponent/ImageComponent'
 
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
 
-import image1 from '@/public/images/686034.jpg'
-import image2 from '@/public/images/1275604.jpg'
-import image3 from '@/public/images/1295802.jpg'
+import image1 from '@/images/686034.jpg'
+import image2 from '@/images/1275604.jpg'
+import image3 from '@/images/1295802.jpg'
 
 
 const images = [image1, image2, image3]
@@ -22,17 +19,10 @@ export default function CustomSlider() {
     const [index, setIndex] = useState(0)
     const [width, height] = useWindowScreenSize()
 
-
-    // const lastSlide = images[images.length - 1]
-    
-    
     const sliderBox = useRef(null);
     const sliderBoxChildren = useRef(null);
-    
-    
-    
+
     const firstSlide = images[0]
-    // console.log(haveTransition);
 
     useEffect(() => {
         const lastIndex = images.length - 1
@@ -59,19 +49,14 @@ export default function CustomSlider() {
 
 
     useEffect(() => {
-        // if (sliderBox.current) {
-        //     sliderBoxChildren.current = sliderBox.current.children.length
-        // }
+
         sliderBoxChildren.current = sliderBox.current?.children.length;
     }, [])
 
     return (
         <Box
-
-            // children
             ref={sliderBox}
             sx={{
-                // ":only-child"
                 ...(haveTransition && { transition: ' left .8s ease-out' }),
                 display: 'flex',
                 position: 'relative',
@@ -83,10 +68,6 @@ export default function CustomSlider() {
                 left: `-${width * index}px`,
             }}
         >
-
-
-            {/* < ImageComponent index={index} width={width} image={lastSlide} /> */}
-
             {
                 images.map((image, index) => (
                     < ImageComponent index={index} key={index} width={width} image={image} />

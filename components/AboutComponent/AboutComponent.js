@@ -2,13 +2,13 @@ import { Box, Typography, Button } from '@mui/material';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import Image from 'next/image';
 
-import bgimg1 from '@/public/images/backgrounds/man being trimm 0(1).png'
+import bgimg1 from '@/images/backgrounds/man being trimm 0(1).png'
 import Link from 'next/link';
 
 
-const BeardsComponent = () => {
-    return (
 
+const AboutComponent = () => {
+    return (
         <Box
             sx={{
                 position: 'relative',
@@ -81,4 +81,4 @@ const BeardsComponent = () => {
     )
 }
 
-export default BeardsComponent
+export default AboutComponent
