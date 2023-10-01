@@ -1,12 +1,10 @@
 import { Box, Typography } from "@mui/material"
 
 import CardComponent from "./Card/CardComponent"
-const arrMap = [0, 1, 2, 3]
 
 
-const CardHolder = () => {
+const CardHolder = ({ barbers }) => {
     return (
-
         <Box
             sx={{
                 display: 'flex',
@@ -30,14 +28,11 @@ const CardHolder = () => {
 
                     justifyContent: 'space-between',
                     flexWrap: 'wrap',
-
-                    // margin: '0 20px',
-                    // gridTemplateColumns: 'repeat(3,1fr)',
                 }}
             >
-                {arrMap.map(i => {
+                {barbers?.map((barber, i) => {
                     return (
-                        <CardComponent key={i} />
+                        <CardComponent barber={barber} key={i} />
                     )
                 })}
             </Box>

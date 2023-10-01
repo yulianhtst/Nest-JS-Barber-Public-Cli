@@ -9,18 +9,22 @@ import BeardsComponent from '@/components/AboutComponent/AboutComponent';
 import WorkingHoursComponent from '@/components/WorkingHoursComponent/WorkingHoursComponent';
 import FooterComponent from '@/components/layout/Footer/FooterComponent';
 import { API_URL } from '@/constants';
+import { BarbersContex } from '@/contexts/BarbersContext';
 
 export async function getStaticProps() {
-    const res = await fetch(API_URL + "dates")
-    const dates = await res.json()
+    const resDates = await fetch(API_URL + "dates")
+    const resBarbers = await fetch(API_URL + "barbers")
 
+    const [dates, barbers] = await Promise.all([resDates.json(), resBarbers.json()]);
 
     return {
-        props: { dates }
+        props: { dates, barbers }
     }
 }
-export default function Home({ dates }) {
-    console.log(dates);
+export default function Home({ dates, barbers }) {
+    // console.log(dates);
+    // console.log(barbers);
+
     return (
 
         <>
@@ -34,8 +38,7 @@ export default function Home({ dates }) {
 
 
             <hr />
-
-            <CardHolder />
+            <CardHolder barbers={barbers} />
 
 
             <BeardsComponent />

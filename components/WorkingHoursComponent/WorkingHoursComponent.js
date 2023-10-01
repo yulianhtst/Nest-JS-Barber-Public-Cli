@@ -38,7 +38,7 @@ const WorkingHoursComponent = ({ dates }) => {
                 {
                     dates?.map((date, index) => {
                         const dateToString = new Date(date).toString();
-                        const day = dateToString.slice(0, 3); // Adjusted to get the first 3 characters of the day
+                        const day = dateToString.slice(0, 3);
                         if (index > 6) return;
                         return (
                             <Box
@@ -51,8 +51,6 @@ const WorkingHoursComponent = ({ dates }) => {
                                     margin: '80px 0',
                                     height: '130px',
                                     width: '130px',
-                                    // ...(day === "Sat" && { backgroundColor: 'red' }),
-                                    // ...(day === "Sun" && { backgroundColor: 'red' }),
                                     backgroundColor: (day === "Sat" || day === "Sun") ? `${red[900]}` : 'beige',
                                     color: (day === "Sat" || day === "Sun") ? `white` : 'black',
                                 }}
@@ -69,18 +67,12 @@ const WorkingHoursComponent = ({ dates }) => {
                                     fontSize: '1.2rem',
                                     fontFamily: '-apple-system',
                                 }}>
-                                    {(day === "Sat" || day === "Sun") ? "10:00-16:00" : "09:00-19:00"}
+                                    {(day === "Sat") ? "10:00-16:00" : "09:00-19:00" && (day === "Sun") ? "Почивен" : "08:00-20:00"}
                                 </Typography>
                             </Box>
                         )
                     })
                 }
-                {/* <Box sx={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'black', backgroundColor: 'white', borderRadius: '90%', margin: '80px 0', height: '130px', width: '130px' }}><Typography></Typography></Box> */}
-                {/* <Box sx={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'black', backgroundColor: 'white', borderRadius: '90%', margin: '80px 0', height: '130px', width: '130px' }}><Typography></Typography></Box> */}
-                {/* <Box sx={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'black', backgroundColor: 'white', borderRadius: '90%', margin: '80px 0', height: '130px', width: '130px' }}><Typography></Typography></Box> */}
-                {/* <Box sx={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'black', backgroundColor: 'white', borderRadius: '90%', margin: '80px 0', height: '130px', width: '130px' }}><Typography></Typography></Box> */}
-                {/* <Box sx={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'black', backgroundColor: "red", borderRadius: '90%', margin: '80px 0', height: '130px', width: '130px' }}><Typography></Typography></Box> */}
-                {/* <Box sx={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'black', backgroundColor: "red", borderRadius: '90%', margin: '80px 0', height: '130px', width: '130px' }}><Typography></Typography></Box> */}
             </Box>
             <Typography></Typography>
         </Box >

@@ -9,8 +9,11 @@ import FormInputField from "./FormInputField/FormInputField";
 import { makeBooking } from "@/services/bookingService";
 
 
-const ModalComponent = ({ onClose }) => {
-    const [date, setDate] = useState(dayjs("11-09-2023"))
+const ModalComponent = ({ onClose, id }) => {
+
+    console.log(id);
+
+    const [date, setDate] = useState(new Date())
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -84,7 +87,9 @@ const ModalComponent = ({ onClose }) => {
     const onComfirmHandler = () => {
         const data = {
             ...form,
-            date
+            date,
+            barber: id,
+
         }
         makeBooking(data)
         onClose()
