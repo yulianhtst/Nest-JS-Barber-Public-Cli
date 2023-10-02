@@ -1,2 +1,3 @@
 export const API_URL = 'http://localhost:5001/'
 export const CONNECTION_STRING = 'mongodb://localhost:27017'
+export const MAP_URL='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.668143265646!2d27.91518207660163!3d43.2164493805685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a4546d9f7f84cb%3A0x8beb3f4ff04c5da4!2z0YPQuy4g4oCe0JHQuNGC0L7Qu9GP4oCcIDIxLCA5MDAyINCS0LDRgNC90LAg0KbQtdC90YLRitGALCDQktCw0YDQvdCw!5e0!3m2!1sbg!2sbg!4v1696201407721!5m2!1sbg!2sbg'

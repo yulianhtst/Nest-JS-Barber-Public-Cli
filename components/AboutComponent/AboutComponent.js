@@ -2,7 +2,7 @@ import { Box, Typography, Button } from '@mui/material';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import Image from 'next/image';
 
-import bgimg1 from '@/images/backgrounds/man being trimm 0(1).png'
+import bgimg1 from '@/public/backgrounds/AboutPageBg.png'
 import Link from 'next/link';
 
 
@@ -19,7 +19,10 @@ const AboutComponent = () => {
 
             }}>
             <Image src={bgimg1} alt={'bg1'}
+
                 style={{
+                    // WebkitBoxReflect
+                    // transform:'rotatex(180deg) translatey(15px)',
                     position: 'absolute',
                     width: '100%',
                     height: '100%',

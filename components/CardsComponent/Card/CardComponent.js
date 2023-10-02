@@ -41,6 +41,8 @@ const CardComponent = (({ barber }) => {
                 sx={{
                     width: '100%',
                     height: '100%',
+                boxShadow:'0 30px 20px -15px rgb(255 0 0 / 0.3)',
+
                 }}
             >
 
@@ -62,6 +64,7 @@ const CardComponent = (({ barber }) => {
                             width={400}
                             height={400}
                             style={{
+                                
                                 objectFit: 'cover',
                                 maxWidth: '100%',
                             }} src={`/images/${barber._id}.jpg`} alt={`${name}`}

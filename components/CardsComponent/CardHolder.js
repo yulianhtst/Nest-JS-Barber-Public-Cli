@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material"
 
 import CardComponent from "./Card/CardComponent"
+import { green, grey, pink, red } from "@mui/material/colors"
 
 
 const CardHolder = ({ barbers }) => {
@@ -11,12 +12,14 @@ const CardHolder = ({ barbers }) => {
                 gap: '50px',
                 flexDirection: 'column',
                 margin: '0 auto',
-                backgroundColor: 'white',
                 justifyContent: 'center',
-                border: '4px solid red ',
+                padding: '10rem 0',
+                // background: `radial-gradient(farthest-corner, ${grey[100]}, ${grey[300]},${grey[600]},${grey[900]}, black)`
+                background: `linear-gradient(black, #8f8168)`
+                // background: 'radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%)'
             }}
         >
-            <Typography sx={{ color: 'black', fontSize: '2rem', textAlign: 'center' }}>Марджина на картите трябва да се оправи</Typography>
+            {/* <Typography sx={{ color: 'black', fontSize: '2rem', textAlign: 'center' }}>Марджина на картите трябва да се оправи</Typography> */}
             <Box
                 sx={{
                     display: 'flex',
@@ -24,7 +27,6 @@ const CardHolder = ({ barbers }) => {
                     maxWidth: '1680px',
                     position: 'relative',
 
-                    border: '4px solid red ',
 
                     justifyContent: 'space-between',
                     flexWrap: 'wrap',

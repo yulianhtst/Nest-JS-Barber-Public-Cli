@@ -8,8 +8,9 @@ import CardHolder from '@/components/CardsComponent/CardHolder';
 import BeardsComponent from '@/components/AboutComponent/AboutComponent';
 import WorkingHoursComponent from '@/components/WorkingHoursComponent/WorkingHoursComponent';
 import FooterComponent from '@/components/layout/Footer/FooterComponent';
-import { API_URL } from '@/constants';
+import { API_URL, MAP_URL } from '@/constants';
 import { BarbersContex } from '@/contexts/BarbersContext';
+import PricesComponent from '@/components/PricesComponent/PricesComponent';
 
 export async function getStaticProps() {
     const resDates = await fetch(API_URL + "dates")
@@ -46,28 +47,10 @@ export default function Home({ dates, barbers }) {
             <WorkingHoursComponent dates={dates} />
 
 
-            <Box
-                sx={{
-                    position: 'relative',
-                    backgroundColor: 'yellow',
+            <PricesComponent />
 
-                }
-                }
-            >
-                <Box sx={{ display: 'flex', }}>
-                    <Box></Box>
-                    <Box></Box>
-                </Box>
-                <Box sx={{
-                    left: '0',
-                    right: '0',
-                    top: '0',
-                    bottom: '0',
-                    position: 'absolute',
-                    background: 'linear-gradient(hsl(0 0% 0% /1),hsl(0 0% 0% /0))',
-                }}></Box>
-            </Box >
-            <BeardsComponent />
+
+            <iframe src={MAP_URL} width="600px" onScroll={(e) => e.preventDefault()} height="450px" allowfullscreen="false" loading="lazy" style={{ display: 'block', margin: '0 auto' }} referrerpolicy="no - referrer - when - downgrade"></iframe>
             <FooterComponent />
         </>
     )

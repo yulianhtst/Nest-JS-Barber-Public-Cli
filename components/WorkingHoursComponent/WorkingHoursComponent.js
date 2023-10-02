@@ -12,6 +12,7 @@ const WorkingHoursComponent = ({ dates }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 backgroundColor: 'black',
+                margin: "10rem 0"
             }}
         >
             <Typography
@@ -39,7 +40,8 @@ const WorkingHoursComponent = ({ dates }) => {
                     dates?.map((date, index) => {
                         const dateToString = new Date(date).toString();
                         const day = dateToString.slice(0, 3);
-                        if (index > 6) return;
+                        const currentDay = index
+                        if (currentDay > 6) return;
                         return (
                             <Box
                                 sx={{
@@ -53,6 +55,9 @@ const WorkingHoursComponent = ({ dates }) => {
                                     width: '130px',
                                     backgroundColor: (day === "Sat" || day === "Sun") ? `${red[900]}` : 'beige',
                                     color: (day === "Sat" || day === "Sun") ? `white` : 'black',
+                                    ...(currentDay === 0 && {
+                                        ...(day === "Sat" || day === "Sun" ? { border: '5px solid white' } : { border: '5px solid red' })
+                                    })
                                 }}
                             >
                                 <Typography sx={{

@@ -12,13 +12,24 @@ const CalendarComponent = ({ dateState }) => {
             {/* <TextField variant="outlined" label="full name" sx={{ width: '40ch' }} /> */}
             <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="eu" >
                 <StaticDateTimePicker
-                    
+
                     onAccept={dateState}
 
                     minutesStep={30}
                     ampm={false}
+                    
 
-                    slotProps={{ actionBar: { actions: ['today', 'accept'] }, calendarHeader: { sx: { display: 'none' } } }} orientation="portrait" />
+                    slotProps={{
+                        day: {},
+
+                        actionBar: {
+                            actions: ['today', 'accept']
+                        },
+                        calendarHeader: {
+                            sx: { display: 'none' }
+                        }
+                    }}
+                    orientation="portrait" />
             </LocalizationProvider>
         </Box>
     )
