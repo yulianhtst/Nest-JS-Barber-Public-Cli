@@ -11,6 +11,7 @@ import FooterComponent from '@/components/layout/Footer/FooterComponent';
 import { API_URL, MAP_URL } from '@/constants';
 import { BarbersContex } from '@/contexts/BarbersContext';
 import PricesComponent from '@/components/PricesComponent/PricesComponent';
+import MapsComponent from '@/components/MapsComponent/MapsComponent';
 
 export async function getStaticProps() {
     const resDates = await fetch(API_URL + "dates")
@@ -32,13 +33,11 @@ export default function Home({ dates, barbers }) {
             <Head>
                 <title>Home</title>
             </Head>
-            <NavBar></NavBar>
 
 
             <NewBetterSlider />
 
 
-            <hr />
             <CardHolder barbers={barbers} />
 
 
@@ -50,8 +49,8 @@ export default function Home({ dates, barbers }) {
             <PricesComponent />
 
 
-            <iframe src={MAP_URL} width="600px" onScroll={(e) => e.preventDefault()} height="450px" allowfullscreen="false" loading="lazy" style={{ display: 'block', margin: '0 auto' }} referrerpolicy="no - referrer - when - downgrade"></iframe>
-            <FooterComponent />
+            <MapsComponent />
+
         </>
     )
 }

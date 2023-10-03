@@ -18,11 +18,12 @@ const WorkingHoursComponent = ({ dates }) => {
             <Typography
                 sx={{
                     textAlign: 'center',
-                    p: '50px 0 0 0',
-                    fontSize: '2.5rem'
+                    padding: '50px 0 0 0',
+                    fontSize: '2.5rem',
+                    fontFamily: 'Roboto',
                 }}
             >
-                Работно време
+                Working Hours
             </Typography>
             <Box
                 sx={{
@@ -72,7 +73,7 @@ const WorkingHoursComponent = ({ dates }) => {
                                     fontSize: '1.2rem',
                                     fontFamily: '-apple-system',
                                 }}>
-                                    {(day === "Sat") ? "10:00-16:00" : "09:00-19:00" && (day === "Sun") ? "Почивен" : "08:00-20:00"}
+                                    {(day === "Sat") ? "10:00-16:00" : "09:00-19:00" && (day === "Sun") ? "Closed" : "08:00-20:00"}
                                 </Typography>
                             </Box>
                         )

@@ -14,7 +14,6 @@ const images = [image1, image2, image3]
 
 
 export default function CustomSlider() {
-    console.log('=====================RENDER==================================');
     const [haveTransition, setHaveTransition] = useState(false)
     const [index, setIndex] = useState(0)
     const [width, height] = useWindowScreenSize()
@@ -41,7 +40,7 @@ export default function CustomSlider() {
             setHaveTransition(true)
 
             setIndex(index + 1)
-        }, 2000);
+        }, 8000);
 
         return () => clearTimeout(slider)
     }, [index])

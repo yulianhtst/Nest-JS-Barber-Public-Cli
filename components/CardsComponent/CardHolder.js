@@ -23,7 +23,7 @@ const CardHolder = ({ barbers }) => {
             <Box
                 sx={{
                     display: 'flex',
-                    m: '0 auto',
+                    margin: '0 auto',
                     maxWidth: '1680px',
                     position: 'relative',
 

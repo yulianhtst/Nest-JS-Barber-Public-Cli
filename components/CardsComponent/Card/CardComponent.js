@@ -41,7 +41,7 @@ const CardComponent = (({ barber }) => {
                 sx={{
                     width: '100%',
                     height: '100%',
-                boxShadow:'0 30px 20px -15px rgb(255 0 0 / 0.3)',
+                    boxShadow: '0 30px 20px -15px rgb(255 0 0 / 0.3)',
 
                 }}
             >
@@ -64,7 +64,7 @@ const CardComponent = (({ barber }) => {
                             width={400}
                             height={400}
                             style={{
-                                
+
                                 objectFit: 'cover',
                                 maxWidth: '100%',
                             }} src={`/images/${barber._id}.jpg`} alt={`${name}`}
@@ -76,7 +76,8 @@ const CardComponent = (({ barber }) => {
                             gridRow: '1/2',
                             bottom: '0%',
                             paddingLeft: '20px',
-                            fontSize: '2.5rem'
+                            fontSize: '2.5rem',
+                            fontFamily: '-apple-system',
                         }}
                     >
                         {name}
@@ -89,14 +90,14 @@ const CardComponent = (({ barber }) => {
                             gridRow: "2/ span 2",
                             padding: '20px',
                             gridColumn: '1 /span 2',
+                            fontFamily: 'Roboto'
                         }}>
                         <Typography>
-                            Работно време:
+                            Working time:
                         </Typography>
                         <Box
                             sx={{
                                 display: 'flex',
-
                                 flexGrow: 2,
                                 justifyContent: 'space-between'
                             }} >
@@ -106,20 +107,22 @@ const CardComponent = (({ barber }) => {
                                     flexGrow: 1,
                                     borderRight: '3px solid hsl(0 0% 80% )',
                                     padding: '20px 0',
+                                    fontFamily: 'Roboto'
                                 }}>
-                                Понеделник-Петък <br />
-                                Събота<br />
-                                Неделя<br />
+                                Monday-Friday <br />
+                                Saturday<br />
+                                Sunday<br />
                             </Typography>
                             <Typography
                                 sx={{
                                     flexGrow: 1,
                                     padding: '20px 0',
-                                    textAlign: 'center'
+                                    textAlign: 'center',
+                                    fontFamily: 'Roboto',
                                 }}>
                                 {regularWorkTime}<br />
                                 {weekendsWorkTime}<br />
-                                Почивен<br />
+                                Closed<br />
                             </Typography>
                         </Box>
                     </Box>
@@ -144,17 +147,19 @@ const CardComponent = (({ barber }) => {
                             flexDirection: 'column',
                             width: '100%',
                             height: '100%',
+
+                            fontFamily: '-apple-system'
                         }}>
                         <h2>{name} </h2>
                         <h4>Barber </h4>
                         <Typography
-                            sx={{ flexGrow: 1, mt: '1.4rem' }}
+                            sx={{ flexGrow: 1, marginTop: '1.4rem', fontFamily: 'Roboto' }}
                         >
                             {description}
                         </Typography>
-                        <Button onClick={reserveButtonHandler} variant="contained" sx={{ backgroundColor: 'primary', color: 'black' }}
+                        <Button onClick={reserveButtonHandler} variant="contained" sx={{ backgroundColor: 'primary', color: 'black' ,fontFamily:'Roboto', bgcolor:'red','&:hover':{bgcolor:'crimson'}}}
                         >
-                            Резервирай сега
+                           Book now
                         </Button>
                         {showModal &&
                             <ModalComponent id={id} onClose={() => setShowModal(false)} />

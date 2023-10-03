@@ -60,7 +60,7 @@ const AboutComponent = () => {
                                 fontSize: '6rem',
                                 fontWeight: 'bold',
                                 lineHeight: '0.85',
-                                p: '0 60px',
+                                padding: '0 60px',
                             }}
                         >
                             Beard Trimming and Styling
@@ -68,7 +68,7 @@ const AboutComponent = () => {
                     </Box>
                     <Box><p>&nbsp;</p></Box>
                     <hr style={{ zIndex: 12 }} />
-                    <Box sx={{ p: '20px 60px', zIndex: 12, fontSize: '1.5rem' }}>
+                    <Box sx={{ padding: '20px 60px', zIndex: 12, fontSize: '1.5rem' }}>
                         <Link href={'/beards'} style={{ display: 'flex' }}>
                             <Typography sx={{ fontSize: '1.5rem', fontFamily: 'serif', }}>
                                 Learn more about

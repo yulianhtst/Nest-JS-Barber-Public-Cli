@@ -119,7 +119,7 @@ const ModalComponent = ({ onClose, id }) => {
                     switch (step) {
                         case 1:
                             return (
-                                <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', p: '40px', gap: '30px' }}>
+                                <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', padding: '40px', gap: '30px' }}>
                                     <FormInputField required name="name" onBlurCallBackFunction={onBlurHandler} onChangeCallBackFunction={onChangeHandler} warningMessage={warningMessage} pattern={'^[^0-9]*$'} />
                                     <FormInputField required name="email" onBlurCallBackFunction={onBlurHandler} onChangeCallBackFunction={onChangeHandler} warningMessage={warningMessage} pattern={'([a-zA-Z0-9]+)@([a-zA-Z]+)\\.([a-zA-Z]+)'} />
                                     <FormInputField required name="number" onBlurCallBackFunction={onBlurHandler} onChangeCallBackFunction={onChangeHandler} warningMessage={warningMessage} />

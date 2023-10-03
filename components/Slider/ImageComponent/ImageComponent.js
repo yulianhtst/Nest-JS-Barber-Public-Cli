@@ -44,28 +44,26 @@ const ImageComponent = ({ width, image }) => {
                             sx={{
                                 position: 'relative',
                                 maxWidth: '1680px',
-                                border: '4px solid red ',
                                 margin: '0 auto',
 
                             }}
                         >
                             <Typography
                                 sx={{
-                                    border: '4px solid red ',
 
                                     marginTop: '100px',
                                     marginBottom: '100px',
                                     fontFamily: '-apple-system',
-                                    fontSize: '700%',
+                                    fontSize: '6rem',
                                     fontWeight: 'bold',
                                     lineHeight: '110px',
                                 }}
-                            >Hello to my WebSite that is very responsive ala bala ala bala
+                            >
+                                Hello to my WebSite that is very responsive ala bala ala bala
                             </Typography>
                             <Button
                                 variant="contained"
                                 sx={{
-                                    border: '4px solid red ',
                                     maxHeight: '3.5em',
                                     maxWidth: '20em',
                                     minHeight: '5em',
