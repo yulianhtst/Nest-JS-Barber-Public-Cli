@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material"
 
 import CardComponent from "./Card/CardComponent"
-import { green, grey, pink, red } from "@mui/material/colors"
 
 
 const CardHolder = ({ barbers }) => {
@@ -19,7 +18,7 @@ const CardHolder = ({ barbers }) => {
                 // background: 'radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%)'
             }}
         >
-            {/* <Typography sx={{ color: 'black', fontSize: '2rem', textAlign: 'center' }}>Марджина на картите трябва да се оправи</Typography> */}
+            <Typography variant="h1" sx={{ color: 'beige', textAlign: 'center', fontFamily: "Roboto" }}>Our team</Typography>
             <Box
                 sx={{
                     display: 'flex',

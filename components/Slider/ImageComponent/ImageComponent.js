@@ -4,7 +4,7 @@ import { Box, Button, Typography } from "@mui/material";
 
 
 
-const ImageComponent = ({ width, image }) => {
+const ImageComponent = ({ disabled, width, image, text }) => {
     if (image) {
         return (
             <Box width={width}>
@@ -45,13 +45,15 @@ const ImageComponent = ({ width, image }) => {
                                 position: 'relative',
                                 maxWidth: '1680px',
                                 margin: '0 auto',
-
+                                left: '0%',
+                                top: '0%',
+                                right: '0%',
+                                bottom: '0%',
                             }}
                         >
                             <Typography
                                 sx={{
-
-                                    marginTop: '100px',
+                                    marginTop: '0px',
                                     marginBottom: '100px',
                                     fontFamily: '-apple-system',
                                     fontSize: '6rem',
@@ -59,23 +61,25 @@ const ImageComponent = ({ width, image }) => {
                                     lineHeight: '110px',
                                 }}
                             >
-                                Hello to my WebSite that is very responsive ala bala ala bala
+                                {text}
                             </Typography>
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    maxHeight: '3.5em',
-                                    maxWidth: '20em',
-                                    minHeight: '5em',
-                                    minWidth: '24em',
-                                    background: `linear-gradient(
+                            {disabled &&
+                                <Button
+                                    variant="contained"
+                                    sx={{
+                                        maxHeight: '3.5em',
+                                        maxWidth: '20em',
+                                        minHeight: '5em',
+                                        minWidth: '24em',
+                                        background: `linear-gradient(
                                         rgba(80, 70, 70, 0.5),
                                     rgba(80, 70, 70, 0.8)
                                     )`,
-                                    marginTop: '100px',
-                                }}
-                            >
-                            </Button>
+                                        marginTop: '100px',
+                                    }}
+                                >
+                                </Button>
+                            }
                         </Box>
                     </Box>
                 </Box>

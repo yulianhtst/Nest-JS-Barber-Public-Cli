@@ -2,7 +2,6 @@ import { Box, Button, getToolbarUtilityClass, } from "@mui/material"
 
 import { LocalizationProvider, StaticDateTimePicker, pickersLayoutClasses } from "@mui/x-date-pickers"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// getToolbarUtilityClass
 
 
 const CalendarComponent = ({ dateState }) => {

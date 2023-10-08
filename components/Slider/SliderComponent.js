@@ -5,18 +5,25 @@ import ImageComponent from './ImageComponent/ImageComponent'
 import { Box } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
 
-import image1 from '@/images/686034.jpg'
-import image2 from '@/images/1275604.jpg'
-import image3 from '@/images/1295802.jpg'
+// import image1 from '@/images/686034.jpg'
+// import image2 from '@/images/1275604.jpg'
+// import image3 from '@/images/1295802.jpg'
 
+import jrlBg from '@/public/SliderImages/jrl.jpg'
+import loraelBg from '@/public/SliderImages/lorael.jpg'
+import team from '@/public/SliderImages/team.jpg'
 
-const images = [image1, image2, image3]
+const images = [
+    { src: jrlBg, description: `The world’s FIRST  and ONLY patented STAY-COOL technology`, button: false },
+    { src: team, description: '', button: false },
+    { src: loraelBg, description: ``, button: false }
+]
 
 
 export default function CustomSlider() {
     const [haveTransition, setHaveTransition] = useState(false)
     const [index, setIndex] = useState(0)
-    const [width, height] = useWindowScreenSize()
+    const [width] = useWindowScreenSize()
 
     const sliderBox = useRef(null);
     const sliderBoxChildren = useRef(null);
@@ -45,10 +52,7 @@ export default function CustomSlider() {
         return () => clearTimeout(slider)
     }, [index])
 
-
-
     useEffect(() => {
-
         sliderBoxChildren.current = sliderBox.current?.children.length;
     }, [])
 
@@ -69,10 +73,10 @@ export default function CustomSlider() {
         >
             {
                 images.map((image, index) => (
-                    < ImageComponent index={index} key={index} width={width} image={image} />
+                    < ImageComponent index={index} disabled={image.button} text={image.description} key={index} width={width} image={image.src} />
                 ))
             }
-            < ImageComponent index={index} width={width} image={firstSlide} />
+            < ImageComponent index={index} disabled={firstSlide.button} text={firstSlide.description} width={width} image={firstSlide.src} />
         </ Box >
     );
 }

@@ -1,5 +1,5 @@
 import { MAP_URL } from "@/constants"
-import { Box, Paper, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 const MapsComponent = () => {
     return (
