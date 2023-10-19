@@ -9,9 +9,9 @@ import FormInputField from "./FormInputField/FormInputField";
 import { makeBooking } from "@/services/bookingService";
 
 
-const ModalComponent = ({ onClose, id }) => {
+const ModalComponent = ({ onClose, barberId }) => {
 
-    console.log(id);
+    console.log(barberId);
 
     const [date, setDate] = useState(new Date())
     const [form, setForm] = useState({
@@ -88,7 +88,7 @@ const ModalComponent = ({ onClose, id }) => {
         const data = {
             ...form,
             date,
-            barber: id,
+            barber: barberId,
 
         }
         makeBooking(data)

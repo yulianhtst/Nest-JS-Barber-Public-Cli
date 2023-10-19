@@ -10,7 +10,7 @@ const CardComponent = (({ barber }) => {
 
 
     const [showModal, setShowModal] = useState(false);
-    const { _id: id, name, description, workingHours } = barber
+    const { _id: barberId, name, description, workingHours } = barber
     const [regularWorkTime, weekendsWorkTime] = workingHours.split('|')
 
     const reserveButtonHandler = (e) => {
@@ -162,7 +162,7 @@ const CardComponent = (({ barber }) => {
                            Book now
                         </Button>
                         {showModal &&
-                            <ModalComponent id={id} onClose={() => setShowModal(false)} />
+                            <ModalComponent BarberId={barberId} onClose={() => setShowModal(false)} />
                         }
                     </Box>
                 </Box>
